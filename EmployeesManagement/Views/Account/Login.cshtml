@@ -1,0 +1,88 @@
+﻿@model EmployeesManagement.Models.LoginViewModel
+@{
+    Layout = "_LoginLayout";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Giriş Yap</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <style>
+        body {
+            background-color: #007bff; /* Mavi arka plan */
+        }
+
+        .login-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column; /* İçeriği dikey olarak ortalamak için */
+        }
+
+        .login-header {
+            font-size: 40px; /* Başlık font boyutunu artırdık */
+            color: white; /* Beyaz renk */
+            margin-bottom: 50px; /* Başlık ile form arasında boşluk */
+        }
+
+        .login-content {
+            width: 400px; /* Genişliği artırdık */
+            padding: 30px; /* İç boşluğu artırdık */
+        }
+
+        .login-card {
+            padding: 30px; /* İç boşluğu artırdık */
+            background-color: #fff;
+            border-radius: 10px; /* Köşe yuvarlaklığını artırdık */
+            box-shadow: 0 6px 12px rgba(0,0,0,0.1); /* Gölgeyi artırdık */
+        }
+
+        .login-card .form-control {
+            font-size: 20px; /* Giriş alanı font boyutunu artırdık */
+        }
+
+        .login-card .btn {
+            font-size: 16px; /* Buton font boyutunu küçülttük */
+            padding: 10px; /* Buton iç boşluğunu küçülttük */
+            width: auto; /* Buton genişliğini otomatik ayarlayalım */
+            max-width: 150px; /* Maksimum genişliği 150px olarak ayarladık */
+            margin-top: 15px; /* Butonun üst boşluğunu artırdık */
+            margin-left:65px;
+            border-radius:8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2 class="login-header">CahanTask</h2>
+        <div class="login-content">
+            <div class="login-card">
+                <h2 class="text-center">Giriş Yap</h2>
+                <form asp-action="Login" method="post">
+                    <div class="form-group">
+                        <label asp-for="Username"></label>
+                        <input asp-for="Username" class="form-control" />
+                        <span asp-validation-for="Username" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Password"></label>
+                        <input asp-for="Password" class="form-control" type="password" />
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary w-100" style="margin-top: 15px;">Giriş Yap</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+
+ 
+           

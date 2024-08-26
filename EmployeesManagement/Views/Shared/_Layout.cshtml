@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - CahanTask</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/EmployeesManagement.styles.css" asp-append-version="true" />
+    <style>
+        /* Sidebar stil tanımları */
+        .sidebar {
+            position: fixed;
+            top: 56px; /* Navbar'ın yüksekliği kadar yukarıdan boşluk bırakın (56px genelde Bootstrap navbar için standart bir yüksekliktir) */
+            bottom: 40px; /* Footer'ın yüksekliği kadar aşağıdan boşluk bırakın (40px örnek bir yükseklik) */
+            width: 220px; /* Sidebar genişliğini belirleyin */
+            background-color: darkgray; /* Açık gri arka plan */
+            padding-top: 20px; /* Üstten boşluk */
+          
+        }
+
+        .content {
+            margin-left: 250px; /* Sidebar genişliği kadar sol kenar boşluğu bırakın */
+            padding: 20px;
+            margin-top: 56px; /* Navbar yüksekliği kadar üstten boşluk bırakın */
+           
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3" style="background-color:dodgerblue;">
+            <div class="container-fluid">
+                <a class="navbar-brand" style="color:white" asp-area="" asp-controller="Home" asp-action="Index">CahanTask</a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="" asp-controller="" asp-action="">Projects</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="" asp-controller="Employees" asp-action="Index">Sents</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="" asp-controller="" asp-action="">Inbox</a>
+                        </li>
+                        <li class="nav-item">
+                            <form asp-controller="Account" asp-action="Logout" method="post" class="d-inline">
+                                <button type="submit" class="btn btn-secondary" style="margin-left:1400px;">Logout</button>
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="sidebar">
+        <nav class="nav flex-column">
+            <a class="nav-link active" href="#">Dashboard</a>
+            <a class="nav-link" href="#">Tasks</a>
+            <a class="nav-link" href="#">Messages</a>
+            <a class="nav-link" href="#">Settings</a>
+        </nav>
+    </div>
+
+    <div class="content">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted" style="background-color:dodgerblue">
+        <div class="container" style="color:white;">
+            &copy; 2024 - CahanTask
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
